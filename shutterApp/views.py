@@ -19,3 +19,17 @@ def shutterSignUp(request):
 
 def shutterAdminIndex(request):
     return render(request,'shutterAdminIndex.html')
+
+
+def shutterUserIndex(request):
+    return render(request,'shutterUserIndex.html')
+
+
+def ManufacturersIndex(request):
+    return render(request,'ManufacturersIndex.html')
+
+
+
+
+def SalesIndex(request):
+    return render(request,'SalesIndex.html')
