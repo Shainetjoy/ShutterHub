@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from shutterApp.models import  User ,Customer
+from shutterApp.models import  User ,Customer,ShutterDtls
 
 
 
@@ -20,4 +20,11 @@ class CustomerREgistration(forms.ModelForm):
     class Meta:
         model = Customer
         exclude = ("user",)
+
+
+class addShutter(forms.ModelForm):
+    class Meta:
+        model = ShutterDtls
+        fields = '__all__'
+
 

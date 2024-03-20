@@ -1,0 +1,8 @@
+{% extends 'shutterAdminIndex.html' %}
+{% block content %}
+{% for i in data %}
+<h1>{{i.Date_of_supply}}</h1>
+<h1>{{i.Quantity}}</h1>
+<h1>{{i.user.name}}</h1>
+{% endfor %}
+{% endblock %}

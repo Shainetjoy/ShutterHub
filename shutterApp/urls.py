@@ -1,5 +1,5 @@
 from django.urls import path
-from shutterApp import views
+from shutterApp import views,adminViews
 
 
 
@@ -12,6 +12,7 @@ urlpatterns = [
     path('shutterUserIndex',views.shutterUserIndex,name= "shutterUserIndex"),
     path('ManufacturersIndex',views.ManufacturersIndex,name= "ManufacturersIndex"),
     path('SalesIndex',views.SalesIndex,name= "SalesIndex"),
+    path('addShutter',adminViews.Shutter_Add,name ="addShutter"),
 
 
 
