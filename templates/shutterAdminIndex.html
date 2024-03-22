@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modernize Free</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
-  <link rel="stylesheet" href=".{% static '/assets/css/styles.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/css/styles.min.css' %}" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-         <h1><B>SHUTTER HUB<B></h1>
+         <h1><B>SHUTTER HUB</B></h1>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
 <!--            <i class="ti ti-x fs-8"></i>-->
           </div>
@@ -38,17 +38,25 @@
                 <span class="hide-menu">User Management</span>
               </a>
             </li>
+             <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'viewProduct' %}"  aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-circle"></i>
+                </span>
+                <span class="hide-menu">All Product</span>
+              </a>
+            </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{% url 'addShutter' %}" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'addShutter' %}"  aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-alert-circle"></i>
                 </span>
-                <span class="hide-menu">Product Management</span>
+                <span class="hide-menu">Add Product</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'view_order' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-alert-circle"></i>
                 </span>
@@ -131,7 +139,7 @@
 <!--              </div>-->
 <!--            </div>-->
 <!--          </div>-->
-        </nav>
+          </ul></nav>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
@@ -188,7 +196,6 @@
           <div class="col-lg-8 d-flex align-items-strech">
             <div class="card w-100">
               {% block content %}
-
               {% endblock %}
 
 
@@ -298,26 +305,17 @@
 <!--              </div>-->
 <!--            </div>-->
 <!--          </div>-->
-<!--          <div class="col-sm-6 col-xl-3">-->
-<!--            <div class="card overflow-hidden rounded-2">-->
-<!--              <div class="position-relative">-->
-<!--                <a href="javascript:void(0)"><img src="{% static 'assets/images/products/s7.jpg' %}" class="card-img-top rounded-0" alt="..."></a>-->
-<!--                <a href="javascript:void(0)" class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i></a>                      </div>-->
-<!--              <div class="card-body pt-3 p-4">-->
-<!--                <h6 class="fw-semibold fs-4">Red Valvet Dress</h6>-->
-<!--                <div class="d-flex align-items-center justify-content-between">-->
-<!--                  <h6 class="fw-semibold fs-4 mb-0">$150 <span class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span></h6>-->
-<!--                  <ul class="list-unstyled d-flex align-items-center mb-0">-->
-<!--                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>-->
-<!--                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>-->
-<!--                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>-->
-<!--                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>-->
-<!--                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card overflow-hidden rounded-2">
+              <div class="position-relative">
+                <a href="javascript:void(0)">
+
+                </a>
+                <a href="javascript:void(0)" class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i></a>                      </div>
+
+              </div>
+            </div>
+          </div>
 <!--          <div class="col-sm-6 col-xl-3">-->
 <!--            <div class="card overflow-hidden rounded-2">-->
 <!--              <div class="position-relative">-->
@@ -352,6 +350,9 @@
   <script src="{% static 'assets/libs/apexcharts/dist/apexcharts.min.js' %}"></script>
   <script src="{% static 'assets/libs/simplebar/dist/simplebar.js' %}"></script>
   <script src="{% static 'assets/js/dashboard.js' %}"></script>
-</body>
+
+    </div>
+
+  </div>></body>
 
 </html>

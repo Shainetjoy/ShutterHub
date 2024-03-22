@@ -1,8 +1,10 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from shutterApp.models import  User ,Customer,ShutterDtls
+from shutterApp.models import User, Customer, ShutterDtls, ManufacturersDtlClass, Sales_TeamClass, OrderItems
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class UserRgistration(UserCreationForm):
     username = forms.CharField()
@@ -28,3 +30,25 @@ class addShutter(forms.ModelForm):
         fields = '__all__'
 
 
+class ManufacturersDtlForms(forms.ModelForm):
+    class Meta:
+        model = ManufacturersDtlClass
+        fields = '__all__'
+
+class Sales_TeamFormClass(forms.ModelForm):
+    class Meta:
+        model = Sales_TeamClass
+        fields = '__all__'
+
+
+class Order(forms.ModelForm):
+    Date_of_supply = forms.DateField(widget=DateInput)
+    class Meta:
+        model = OrderItems
+        exclude = ('user','Product_price','product_Id','Product_Name','Booking_status','Buyer_Name')
+
+
+class UpdateStatus(forms.ModelForm):
+    class Meta:
+        model = OrderItems
+        fields = '__all__'

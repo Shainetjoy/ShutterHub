@@ -7,5 +7,6 @@
     {% csrf_token %}
        {{ShutterAddForm|crispy}}
     <button type="submit" class="btn btn-success">Submit</button>
+    <a href="{% url 'viewProduct' %}">Submit</a>
 </form>
 {% endblock %}
