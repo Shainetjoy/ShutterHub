@@ -33,7 +33,8 @@ class addShutter(forms.ModelForm):
 class ManufacturersDtlForms(forms.ModelForm):
     class Meta:
         model = ManufacturersDtlClass
-        fields = '__all__'
+        exclude = ('user',)
+
 
 class Sales_TeamFormClass(forms.ModelForm):
     class Meta:

@@ -1,5 +1,5 @@
 from django.contrib import auth, messages
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from django.shortcuts import render, redirect
 from .forms import UserRgistration, CustomerREgistration, ManufacturersDtlForms, Sales_TeamFormClass
 
@@ -15,16 +15,23 @@ def shutterSignin(request):
         username = request.POST.get('Uname')
         password = request.POST.get('pword')
         user = auth.authenticate(username=username, password=password)
+        print("11",user)
         if user is not None and user.is_staff:
+            print("1")
             login(request,user)
             return redirect('shutterAdminIndex')
         elif user is not None and user.is_Manufacturers:
+            print("2")
             login(request,user)
             return redirect('ManufacturersIndex')
         elif user is not None and user.is_Customer:
+            print("3")
+
             login(request,user)
             return redirect('shutterUserIndex')
         elif user is not None and user.is_Sales:
+            print("4")
+
             login(request,user)
             return redirect('SalesIndex')
         else:
@@ -59,7 +66,7 @@ def ManufacturersDtlFun(request):
         userRegistration = UserRgistration(request.POST)
         manufacturerForm = ManufacturersDtlForms(request.POST, request.FILES)
         if userRegistration.is_valid() and manufacturerForm.is_valid():
-            user = manufacturerForm.save(commit=False)
+            user = userRegistration.save(commit=False)
             user.is_Manufacturers = True
             user.save()
             manufact = manufacturerForm.save(commit=False)
@@ -102,3 +109,5 @@ def ManufacturersIndex(request):
 
 def SalesIndex(request):
     return render(request, 'SalesIndex.html')
+
+

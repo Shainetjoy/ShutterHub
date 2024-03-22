@@ -1,7 +1,5 @@
-<!-- Registration 4 - Bootstrap Brain Component -->
 {% load static %}
 {% load crispy_forms_tags %}
-
 <header>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -29,7 +27,6 @@
                         </div>
                         <form action="ManufacturersDtlFun" method="post">
                             {% csrf_token %}
-
                             {{userRegistration|crispy}}
                             {{manufacturerForm|crispy}}
                             <div class="col-12">

@@ -45,6 +45,7 @@ class ShutterDtls(models.Model):
 
 
 class ManufacturersDtlClass(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name="manufact")
     Manufacturer_ID = models.CharField(max_length=10, validators=[RegexValidator(r'^\d+$', 'Only numbers are allowed')])
     Manufacturer_Name = models.CharField(max_length=50)
     Contact_Person = models.CharField(max_length=50)

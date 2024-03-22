@@ -1,5 +1,5 @@
 from django.urls import path
-from shutterApp import views, adminViews,userView
+from shutterApp import views, adminViews,userView,manufacturerViews
 
 urlpatterns = [
     path('', views.shutterIndex, name="shutterIndex"),
@@ -21,6 +21,13 @@ urlpatterns = [
     path('view_order', adminViews.view_order, name="view_order"),
     path('viewOrders', userView.viewOrders, name="viewOrders"),
     path('updateStatus/<int:product_Id>', adminViews.updateStatus, name="updateStatus"),
+
+
+
+    path('displayProfile', manufacturerViews.displayProfile, name="displayProfile"),
+    path('updateProfile/<int:id>/', manufacturerViews.updateProfile, name="updateProfile"),
+
+
 
 
 
