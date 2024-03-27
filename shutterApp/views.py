@@ -2,6 +2,7 @@ from django.contrib import auth, messages
 from django.contrib.auth import login,logout
 from django.shortcuts import render, redirect
 from .forms import UserRgistration, CustomerREgistration, ManufacturersDtlForms, Sales_TeamFormClass
+from .models import ManufacturersDtlClass
 
 
 # Create your views here.
@@ -104,7 +105,9 @@ def shutterUserIndex(request):
 
 
 def ManufacturersIndex(request):
-    return render(request, 'ManufacturersIndex.html')
+    u = request.user.id
+    myProfile = ManufacturersDtlClass.objects.get(user_id=u)
+    return render(request, 'ManufacturersIndex.html',{"myProfile":myProfile})
 
 
 def SalesIndex(request):

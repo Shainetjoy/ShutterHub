@@ -18,7 +18,9 @@
     <p class="card-text">{{myProfile.Company_Website}}</p>
     <p class="card-text">{{myProfile.Contact_Phone}}</p>
     <p class="card-text">{{myProfile.Contact_Email}}</p>
-    <a href="{% url 'updateProfile' myProfile.user_id %}" class="btn btn-primary">Update Profile</a>
+    <p class="card-text">{{myProfile.user_id}}</p>
+
+    <a href="{% url 'updateProfile' myProfile.user_id  %}" class="btn btn-primary">Update Profile</a>
   </div>
   <div class="card-footer text-muted">
 

@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from shutterApp.forms import ManufacturersDtlForms
 from shutterApp.models import ManufacturersDtlClass
 
 def displayProfile(request):
@@ -8,20 +10,14 @@ def displayProfile(request):
 
 
 def updateProfile(request,id):
-    print(id,"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
-    return render(request,'Manufacturer/updateProfile.html')
+    Muser = ManufacturersDtlClass.objects.get(user_id = id)
+    Muserform = ManufacturersDtlForms(instance = Muser )
+    if request.method == 'POST':
+        Muserform = ManufacturersDtlForms(request.POST,instance = Muser)
+        if Muserform.is_valid():
+            Muserform.save()
+            return redirect('displayProfile')
+    return render(request,'Manufacturer/updateProfile.html',{"Muserform":Muserform})
 
 
-
-
-
-
-# def updateProduct(request, product_Id):
-#     upProduct = ShutterDtls.objects.get(product_Id=product_Id)
-#     ShutterAddForm = addShutter(instance=upProduct)
-#     if request.method == 'POST':
-#         ShutterAddForm = addShutter(request.POST, request.FILES, instance=upProduct)
-#         if ShutterAddForm.is_valid():
-#             ShutterAddForm.save()
-#             return redirect('viewProduct')
-#     return render(request, 'admin/UpdateProduct.html', {'ShutterAddForm': ShutterAddForm})
+def viewProducts
